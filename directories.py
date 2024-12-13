@@ -81,10 +81,12 @@ def moveDirectory(fullPathFrom, fullPathTo):
         # Check if the destination directory already has an entry with that name
         # If not, create it
         if pathTo[-1] not in destinationLocation:
-            destinationLocation[pathTo[-1]] = {}
+            destinationLocation[pathTo[-1]] = directoryToMove
+        else:
+            # Add the directory to its new location as a subdirectory
+            destinationLocation[pathTo[-1]][pathFrom[-1]] = directoryToMove
 
-        # Add the directory to its new location as a subdirectory
-        destinationLocation[pathTo[-1]][pathFrom[-1]] = directoryToMove
+
 
     except NotFoundException as e:
         # Restore the directory if moving fails
