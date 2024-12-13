@@ -86,8 +86,6 @@ def moveDirectory(fullPathFrom, fullPathTo):
             # Add the directory to its new location as a subdirectory
             destinationLocation[pathTo[-1]][pathFrom[-1]] = directoryToMove
 
-
-
     except NotFoundException as e:
         # Restore the directory if moving fails
         sourceLocation[pathFrom[-1]] = directoryToMove
